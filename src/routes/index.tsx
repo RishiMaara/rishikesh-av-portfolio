@@ -1,29 +1,61 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/portfolio/Navbar";
+import { Hero } from "@/components/portfolio/Hero";
+import { About } from "@/components/portfolio/About";
+import { Experience } from "@/components/portfolio/Experience";
+import { Projects } from "@/components/portfolio/Projects";
+import { Skills } from "@/components/portfolio/Skills";
+import { Achievements } from "@/components/portfolio/Achievements";
+import { GitHubSection } from "@/components/portfolio/GitHubSection";
+import { Contact } from "@/components/portfolio/Contact";
+import { Footer } from "@/components/portfolio/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Rishikesh AV — Applied AI Engineer & Full-Stack Developer" },
+      { name: "description", content: "Portfolio of Rishikesh AV — Applied AI Engineer & Full-Stack Developer. Building intelligent products that scale, from AI research to production engineering." },
+      { property: "og:title", content: "Rishikesh AV — Applied AI Engineer & Full-Stack Developer" },
+      { property: "og:description", content: "Building intelligent products that scale — from AI research to full-stack engineering." },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Rishikesh AV",
+          jobTitle: "Applied AI Engineer & Full-Stack Developer",
+          email: "mailto:rishirudhm@gmail.com",
+          address: { "@type": "PostalAddress", addressLocality: "Madurai", addressRegion: "Tamil Nadu", addressCountry: "India" },
+          sameAs: [
+            "https://www.linkedin.com/in/rishi-kesh-av",
+            "https://github.com/RishiMaara",
+          ],
+        }),
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="relative min-h-screen overflow-x-hidden">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Achievements />
+        <GitHubSection />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }
