@@ -164,7 +164,7 @@ export function Hero() {
 
               {/* Floating badges */}
               <div
-                className="glass absolute -left-4 top-10 rounded-2xl px-3 py-2 text-xs animate-float-slow sm:-left-6"
+                className="glass absolute -left-2 top-8 rounded-2xl px-3 py-2 text-xs animate-float-slow sm:-left-6 sm:top-10"
                 style={{ transform: "translateZ(80px)", animationDelay: "0.4s" }}
               >
                 <div className="flex items-center gap-2">
@@ -173,7 +173,7 @@ export function Hero() {
                 </div>
               </div>
               <div
-                className="glass absolute -right-2 bottom-12 rounded-2xl px-3 py-2 text-xs animate-float-slow sm:-right-6"
+                className="glass absolute -right-2 bottom-10 hidden rounded-2xl px-3 py-2 text-xs animate-float-slow sm:-right-6 sm:bottom-12 sm:block"
                 style={{ transform: "translateZ(80px)", animationDelay: "1.2s" }}
               >
                 <div className="flex items-center gap-2">
@@ -182,7 +182,7 @@ export function Hero() {
                 </div>
               </div>
               <div
-                className="glass absolute -right-6 top-6 rounded-full px-3 py-1.5 text-[10px] uppercase tracking-wider animate-float-slow"
+                className="glass absolute -right-4 top-4 hidden rounded-full px-3 py-1.5 text-[10px] uppercase tracking-wider animate-float-slow sm:-right-6 sm:top-6 sm:block"
                 style={{ transform: "translateZ(60px)", animationDelay: "0.8s" }}
               >
                 <span className="text-gradient font-semibold">AI · ML · LLMs</span>
