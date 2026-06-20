@@ -63,14 +63,14 @@ export function GitHubSection() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-black/30 p-3">
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/30 p-3">
             <img
               src="https://ghchart.rshah.org/4cc9f0/RishiMaara"
               alt="Rishikesh AV's GitHub contribution graph"
               className="w-full rounded-xl"
               loading="lazy"
             />
-            <div className="mt-3 grid grid-cols-2 gap-2">
+            <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
               <img
                 src="https://github-readme-stats.vercel.app/api?username=RishiMaara&show_icons=true&hide_border=true&bg_color=00000000&title_color=4cc9f0&icon_color=b388ff&text_color=cbd5e1"
                 alt="GitHub stats"
