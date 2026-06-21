@@ -14,6 +14,16 @@ const roles = [
     ],
   },
   {
+    company: "Infou",
+    role: "Graphic Designer",
+    period: "Jul 2025 - Dec 2025",
+    bullets: [
+      "Crafted compelling visual designs that strengthened brand identity and increased digital engagement.",
+      "Created social media creatives, logos, and marketing assets using Photoshop, Canva, and Figma.",
+      "Collaborated closely with cross-functional teams to deliver impactful, brand-aligned design solutions.",
+    ],
+  },
+  {
     company: "PC World",
     role: "Machine Learning Intern",
     period: "Past",
@@ -21,6 +31,18 @@ const roles = [
       "Built and evaluated end-to-end machine learning pipelines.",
       "Improved predictive model accuracy via feature engineering and hyperparameter optimization.",
       "Developed production-oriented ML workflows.",
+    ],
+  },
+  {
+    company: "VYUKTECH PVT LTD",
+    role: "Web Developer",
+    period: "Jul 2024 - Sep 2024",
+    bullets: [
+      "Gained first hands-on exposure to real-world tech during first year of college.",
+      "Transitioned from classroom theory to practice through basic programming and real project flows.",
+      "Contributed to small development and testing assignments in a fast-paced team environment.",
+      "Learned clean coding practices, collaboration, and problem-solving under experienced mentors.",
+      "Solidified technical fundamentals while building confidence and communication skills.",
     ],
   },
 ];
