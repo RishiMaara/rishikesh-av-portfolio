@@ -24,9 +24,9 @@ const roles = [
     ],
   },
   {
-    company: "PC World",
-    role: "Machine Learning Intern",
-    period: "Past",
+    company: "PC World · Internship",
+    role: "Machine Learning Engineer",
+    period: "Jun 2025 - Jul 2025 · 2 mos",
     bullets: [
       "Built and evaluated end-to-end machine learning pipelines.",
       "Improved predictive model accuracy via feature engineering and hyperparameter optimization.",
