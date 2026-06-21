@@ -13,11 +13,13 @@ const projects = [
     desc: "Healthcare platform for patients, appointments, prescriptions, billing, analytics, and secure role-based access control.",
     tech: ["Next.js", "Spring Boot", "MySQL"],
     featured: true,
+    link: "https://medisphere-rishi.netlify.app/",
   },
   {
     title: "Distributed URL Shortener",
     desc: "Scalable URL shortening service with Redis caching, analytics dashboards, click tracking, and rate limiting.",
     tech: ["GoLang", "PostgreSQL", "Redis", "Docker"],
+    link: "https://github.com/RishiMaara/LinkForge",
   },
   {
     title: "Coding Director",

@@ -1,5 +1,6 @@
 import { Section } from "./Section";
-import { Mail, MapPin, Linkedin, Github, Download, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github, ExternalLink, ArrowRight } from "lucide-react";
+import resumeAsset from "@/assets/RISHIKESH_FS_RESUME.pdf.asset.json";
 
 export function Contact() {
   return (
@@ -71,10 +72,12 @@ export function Contact() {
                 <Mail size={16} /> Email me
               </a>
               <a
-                href="/resume.pdf"
+                href={resumeAsset.url}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-medium hover:bg-white/10"
               >
-                <Download size={16} /> Download résumé
+                <ExternalLink size={16} /> View résumé
               </a>
             </div>
           </div>

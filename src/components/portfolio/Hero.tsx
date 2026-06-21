@@ -1,6 +1,7 @@
-import { ArrowRight, Download, Github, Linkedin, Mail, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Linkedin, Mail, MapPin, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import profileAsset from "@/assets/rishikesh-profile.jpg.asset.json";
+import resumeAsset from "@/assets/RISHIKESH_FS_RESUME.pdf.asset.json";
 
 export function Hero() {
   const portraitRef = useRef<HTMLDivElement>(null);
@@ -103,10 +104,12 @@ export function Hero() {
                 <Mail size={16} /> Get in touch
               </a>
               <a
-                href="/resume.pdf"
+                href={resumeAsset.url}
+                target="_blank"
+                rel="noreferrer"
                 className="glass inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-white/10"
               >
-                <Download size={16} /> Resume
+                <ExternalLink size={16} /> View Resume
               </a>
             </div>
 
