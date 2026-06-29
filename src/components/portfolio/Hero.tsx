@@ -1,7 +1,7 @@
 import { ArrowRight, ExternalLink, Github, Linkedin, Mail, MapPin, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import profileAsset from "@/assets/rishikesh-profile.jpg.asset.json";
-import resumeAsset from "@/assets/RISHIKESH_FS_RESUME.pdf.asset.json";
+import resumeAsset from "@/assets/Rishikesh_AV_FS_Resume.pdf.asset.json";
 
 export function Hero() {
   const portraitRef = useRef<HTMLDivElement>(null);

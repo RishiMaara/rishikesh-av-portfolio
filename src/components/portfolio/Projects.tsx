@@ -19,7 +19,7 @@ const projects = [
     title: "Distributed URL Shortener",
     desc: "Scalable URL shortening service with Redis caching, analytics dashboards, click tracking, and rate limiting.",
     tech: ["GoLang", "PostgreSQL", "Redis", "Docker"],
-    link: "https://github.com/RishiMaara/LinkForge",
+    link: "https://linkforge-rishi.netlify.app/",
   },
   {
     title: "Coding Director",
