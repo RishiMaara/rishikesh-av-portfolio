@@ -1,6 +1,6 @@
 import { Section } from "./Section";
 import { Mail, MapPin, Linkedin, Github, ExternalLink, ArrowRight } from "lucide-react";
-import resumeAsset from "@/assets/RISHIKESH_FS_RESUME.pdf.asset.json";
+import resumeAsset from "@/assets/Rishikesh_AV_FS_Resume.pdf.asset.json";
 
 export function Contact() {
   return (
