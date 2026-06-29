@@ -9,6 +9,11 @@ import { Achievements } from "@/components/portfolio/Achievements";
 import { GitHubSection } from "@/components/portfolio/GitHubSection";
 import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
+import { SpotlightCursor } from "@/components/portfolio/SpotlightCursor";
+import { ScrollProgress } from "@/components/portfolio/ScrollProgress";
+import { TechMarquee } from "@/components/portfolio/TechMarquee";
+import { AIChatbot } from "@/components/portfolio/AIChatbot";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,9 +49,12 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      <ScrollProgress />
+      <SpotlightCursor />
       <Navbar />
       <main>
         <Hero />
+        <TechMarquee />
         <About />
         <Experience />
         <Projects />
@@ -56,6 +64,8 @@ function Index() {
         <Contact />
       </main>
       <Footer />
+      <AIChatbot />
     </div>
   );
 }
+

@@ -1,5 +1,6 @@
 import { Section } from "./Section";
 import { Award } from "lucide-react";
+import { useCountUp, useReveal } from "@/hooks/useReveal";
 
 const items = [
   "Oracle Cloud Infrastructure Data Science Professional",
@@ -7,6 +8,31 @@ const items = [
   "Databricks Generative AI Fundamentals",
   "AWS Academy Generative AI Foundations",
 ];
+
+const stats = [
+  { label: "Projects Shipped", value: 15, suffix: "+" },
+  { label: "Certifications", value: 4, suffix: "" },
+  { label: "Tech Domains", value: 6, suffix: "" },
+  { label: "Coffee → Code", value: 100, suffix: "%" },
+];
+
+function StatCard({ stat, delay }: { stat: typeof stats[number]; delay: number }) {
+  const { ref, shown } = useReveal<HTMLDivElement>();
+  const n = useCountUp(stat.value, 1600, shown);
+  return (
+    <div
+      ref={ref}
+      className="glass rounded-2xl p-5 text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-glow"
+      style={{ animationDelay: `${delay}s` }}
+    >
+      <div className="font-display text-3xl font-bold text-gradient sm:text-4xl">
+        {n}
+        {stat.suffix}
+      </div>
+      <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{stat.label}</div>
+    </div>
+  );
+}
 
 export function Achievements() {
   return (
@@ -16,6 +42,12 @@ export function Achievements() {
       title={<>Certified across <span className="text-gradient">AI & Cloud</span>.</>}
       description="Continuously leveling up across the modern AI and cloud stack."
     >
+      <div className="mb-10 grid gap-3 grid-cols-2 lg:grid-cols-4">
+        {stats.map((s, i) => (
+          <StatCard key={s.label} stat={s} delay={i * 0.05} />
+        ))}
+      </div>
+
       <div className="grid gap-4 sm:grid-cols-2">
         {items.map((it, i) => (
           <div
