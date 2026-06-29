@@ -3,6 +3,35 @@ import { useEffect, useRef, useState } from "react";
 import profileAsset from "@/assets/rishikesh-profile.jpg.asset.json";
 import resumeAsset from "@/assets/Rishikesh_AV_FS_Resume.pdf.asset.json";
 
+function Typewriter({ words, speed = 70, pause = 1400 }: { words: string[]; speed?: number; pause?: number }) {
+  const [i, setI] = useState(0);
+  const [text, setText] = useState("");
+  const [del, setDel] = useState(false);
+  useEffect(() => {
+    const word = words[i % words.length];
+    if (!del && text === word) {
+      const t = setTimeout(() => setDel(true), pause);
+      return () => clearTimeout(t);
+    }
+    if (del && text === "") {
+      setDel(false);
+      setI((v) => (v + 1) % words.length);
+      return;
+    }
+    const t = setTimeout(() => {
+      setText((cur) => (del ? cur.slice(0, -1) : word.slice(0, cur.length + 1)));
+    }, del ? speed / 2 : speed);
+    return () => clearTimeout(t);
+  }, [text, del, i, words, speed, pause]);
+  return (
+    <span>
+      {text}
+      <span className="ml-1 inline-block w-[2px] -translate-y-0.5 bg-current align-middle animate-blink" style={{ height: "0.85em" }} />
+    </span>
+  );
+}
+
+
 export function Hero() {
   const portraitRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
