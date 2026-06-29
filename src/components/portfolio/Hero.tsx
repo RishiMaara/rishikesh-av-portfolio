@@ -75,9 +75,16 @@ export function Hero() {
             <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
               <span className="block text-foreground/90">Rishikesh AV</span>
               <span className="block text-gradient animate-gradient-pan">
-                Applied AI · Full-Stack
+                <Typewriter
+                  words={[
+                    "Full-Stack Engineer",
+                    "AI / ML Builder",
+                    "Product Thinker",
+                    "Systems Designer",
+                  ]}
+                />
               </span>
-              <span className="block text-foreground/80">Product Builder</span>
+              <span className="block text-foreground/80">Building at the edge of AI.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-balance text-base text-muted-foreground sm:text-lg">
@@ -85,6 +92,7 @@ export function Hero() {
               engineering. I turn complex problems into production systems with strong
               engineering and exceptional UX.
             </p>
+
 
             <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <a
