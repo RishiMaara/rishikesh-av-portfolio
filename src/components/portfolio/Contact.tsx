@@ -1,5 +1,5 @@
 import { Section } from "./Section";
-import { Mail, MapPin, Linkedin, Github, ExternalLink, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github, ExternalLink, ArrowRight, Sparkles, Code2, Brain, Rocket } from "lucide-react";
 import resumeAsset from "@/assets/Rishikesh_AV_FS_Resume.pdf.asset.json";
 
 export function Contact() {
