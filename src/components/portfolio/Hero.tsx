@@ -47,17 +47,30 @@ export function Hero() {
   };
   const resetTilt = () => setTilt({ x: 0, y: 0 });
 
-  // Subtle parallax for orbs based on global cursor
+  // Smooth parallax via rAF lerp + disabled on touch/reduced-motion
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    const fine = window.matchMedia("(pointer: fine)").matches;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!fine || reduced) return;
+    let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
     const onMove = (e: MouseEvent) => {
-      setMouse({
-        x: (e.clientX / window.innerWidth - 0.5) * 2,
-        y: (e.clientY / window.innerHeight - 0.5) * 2,
-      });
+      tx = (e.clientX / window.innerWidth - 0.5) * 2;
+      ty = (e.clientY / window.innerHeight - 0.5) * 2;
     };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+    const tick = () => {
+      cx += (tx - cx) * 0.06;
+      cy += (ty - cy) * 0.06;
+      setMouse({ x: cx, y: cy });
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("mousemove", onMove);
+    };
   }, []);
 
   return (
