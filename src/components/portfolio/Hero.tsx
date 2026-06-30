@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import profileAsset from "@/assets/rishikesh-profile.jpg.asset.json";
 import resumeAsset from "@/assets/Rishikesh_AV_FS_Resume.pdf.asset.json";
 
-function Typewriter({ words, speed = 70, pause = 1400 }: { words: string[]; speed?: number; pause?: number }) {
+function Typewriter({ words, typeSpeed = 60, deleteSpeed = 30, pause = 1800 }: { words: string[]; typeSpeed?: number; deleteSpeed?: number; pause?: number }) {
   const [i, setI] = useState(0);
   const [text, setText] = useState("");
   const [del, setDel] = useState(false);
@@ -20,13 +20,13 @@ function Typewriter({ words, speed = 70, pause = 1400 }: { words: string[]; spee
     }
     const t = setTimeout(() => {
       setText((cur) => (del ? cur.slice(0, -1) : word.slice(0, cur.length + 1)));
-    }, del ? speed / 2 : speed);
+    }, del ? deleteSpeed : typeSpeed);
     return () => clearTimeout(t);
-  }, [text, del, i, words, speed, pause]);
+  }, [text, del, i, words, typeSpeed, deleteSpeed, pause]);
   return (
     <span>
       {text}
-      <span className="ml-1 inline-block w-[2px] -translate-y-0.5 bg-current align-middle animate-blink" style={{ height: "0.85em" }} />
+      <span className="ml-1 inline-block w-[3px] -translate-y-0.5 rounded-sm bg-current align-middle animate-blink" style={{ height: "0.85em" }} />
     </span>
   );
 }
