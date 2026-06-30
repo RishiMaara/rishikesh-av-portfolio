@@ -1,5 +1,5 @@
 import { Section } from "./Section";
-import { Mail, MapPin, Linkedin, Github, ExternalLink, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Linkedin, Github, ExternalLink, ArrowRight, Sparkles, Code2, Brain, Rocket } from "lucide-react";
 import resumeAsset from "@/assets/Rishikesh_AV_FS_Resume.pdf.asset.json";
 
 export function Contact() {
@@ -63,6 +63,40 @@ export function Contact() {
                 "Building Models, Not Theories — <span className="text-gradient">From Data to Decisions.</span>"
               </blockquote>
             </div>
+
+            <div className="glass relative overflow-hidden rounded-2xl p-6">
+              <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full opacity-30 blur-2xl" style={{ background: "var(--gradient-primary)" }} />
+              <div className="relative">
+                <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground">
+                  <Sparkles size={12} className="text-primary" /> Why work with me
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/90">
+                  I think like a <span className="text-gradient font-medium">product engineer</span> and ship like a researcher —
+                  bridging applied AI, distributed systems, and pixel-honest UX in a single workflow.
+                </p>
+                <ul className="mt-4 grid grid-cols-1 gap-2 text-sm">
+                  <li className="flex items-start gap-2.5">
+                    <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                      <Brain size={13} />
+                    </span>
+                    <span className="text-muted-foreground"><span className="text-foreground">AI fluency</span> — LLMs, fine-tuning, RAG, CV pipelines productionised end-to-end.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                      <Code2 size={13} />
+                    </span>
+                    <span className="text-muted-foreground"><span className="text-foreground">Full-stack range</span> — React, Next.js, Spring Boot, Go, Postgres, Redis at scale.</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                      <Rocket size={13} />
+                    </span>
+                    <span className="text-muted-foreground"><span className="text-foreground">Bias to ship</span> — six live products shipped this year, each solving a real user problem.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
 
             <div className="flex flex-wrap gap-3">
               <a

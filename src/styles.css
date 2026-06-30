@@ -206,7 +206,6 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-float-slow,
   .animate-gradient-pan,
-  .animate-marquee,
   .animate-pulse-ring,
   .animate-blink {
     animation: none !important;
