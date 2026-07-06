@@ -41,7 +41,7 @@ const projects: Project[] = [
     desc: "Interactive coding platform for guided technical practice, problem solving, and skill progression with a polished developer experience.",
     tech: ["React", "TypeScript", "Node.js"],
     domains: ["Full-Stack"],
-    link: "https://codingdirector.netlify.app/",
+    link: "https://coding-director.vercel.app/",
   },
   {
     title: "Exoplanet Detection System",
