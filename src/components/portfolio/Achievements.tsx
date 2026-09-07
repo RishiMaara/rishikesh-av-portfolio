@@ -1,17 +1,19 @@
 import { Section } from "./Section";
-import { Award } from "lucide-react";
+import { Award, ExternalLink } from "lucide-react";
 import { useCountUp, useReveal } from "@/hooks/useReveal";
+import wsuCertificate from "@/assets/wsu-certificate.png.asset.json";
 
 const items = [
-  "Oracle Cloud Infrastructure Data Science Professional",
-  "Oracle Cloud Infrastructure AI Foundations Associate",
-  "Databricks Generative AI Fundamentals",
-  "AWS Academy Generative AI Foundations",
+  { name: "Gen AI Professional — Western State University, California", link: wsuCertificate.url },
+  { name: "Oracle Cloud Infrastructure Data Science Professional" },
+  { name: "Oracle Cloud Infrastructure AI Foundations Associate" },
+  { name: "Databricks Generative AI Fundamentals" },
+  { name: "AWS Academy Generative AI Foundations" },
 ];
 
 const stats = [
   { label: "Projects Shipped", value: 15, suffix: "+" },
-  { label: "Certifications", value: 4, suffix: "" },
+  { label: "Certifications", value: 5, suffix: "" },
   { label: "Tech Domains", value: 6, suffix: "" },
   { label: "Coffee → Code", value: 100, suffix: "%" },
 ];
