@@ -1,17 +1,19 @@
 import { Section } from "./Section";
-import { Award } from "lucide-react";
+import { Award, ExternalLink } from "lucide-react";
 import { useCountUp, useReveal } from "@/hooks/useReveal";
+import wsuCertificate from "@/assets/wsu-certificate.png.asset.json";
 
 const items = [
-  "Oracle Cloud Infrastructure Data Science Professional",
-  "Oracle Cloud Infrastructure AI Foundations Associate",
-  "Databricks Generative AI Fundamentals",
-  "AWS Academy Generative AI Foundations",
+  { name: "Gen AI Professional — Western State University, California", link: wsuCertificate.url },
+  { name: "Oracle Cloud Infrastructure Data Science Professional" },
+  { name: "Oracle Cloud Infrastructure AI Foundations Associate" },
+  { name: "Databricks Generative AI Fundamentals" },
+  { name: "AWS Academy Generative AI Foundations" },
 ];
 
 const stats = [
   { label: "Projects Shipped", value: 15, suffix: "+" },
-  { label: "Certifications", value: 4, suffix: "" },
+  { label: "Certifications", value: 5, suffix: "" },
   { label: "Tech Domains", value: 6, suffix: "" },
   { label: "Coffee → Code", value: 100, suffix: "%" },
 ];
@@ -49,21 +51,28 @@ export function Achievements() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        {items.map((it, i) => (
-          <div
-            key={it}
-            className="glass flex items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-glow animate-fade-up"
-            style={{ animationDelay: `${i * 0.06}s` }}
-          >
-            <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-glow">
-              <Award size={20} />
-            </div>
-            <div className="min-w-0">
-              <div className="font-display text-sm font-semibold sm:text-base">{it}</div>
-              <div className="mt-0.5 text-xs text-muted-foreground">Professional Certification</div>
-            </div>
-          </div>
-        ))}
+        {items.map((it, i) => {
+          const Wrapper = it.link ? "a" : "div";
+          return (
+            <Wrapper
+              key={it.name}
+              href={it.link}
+              target={it.link ? "_blank" : undefined}
+              rel={it.link ? "noopener noreferrer" : undefined}
+              className={`glass flex items-center gap-4 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-glow animate-fade-up ${it.link ? "cursor-pointer" : ""}`}
+              style={{ animationDelay: `${i * 0.06}s` }}
+            >
+              <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-glow">
+                <Award size={20} />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="font-display text-sm font-semibold sm:text-base">{it.name}</div>
+                <div className="mt-0.5 text-xs text-muted-foreground">Professional Certification</div>
+              </div>
+              {it.link && <ExternalLink size={16} className="shrink-0 text-muted-foreground" />}
+            </Wrapper>
+          );
+        })}
       </div>
     </Section>
   );

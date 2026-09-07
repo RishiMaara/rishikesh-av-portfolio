@@ -15,6 +15,14 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "AmongResolver — Settlement Reconciliation Engine",
+    desc: "Multi-source settlement reconciliation engine built for the Razorpay AI Buildathon (AI Finance Controller). Matches gateway exports, bank statements, and ERP ledgers using entity resolution + CP-SAT subset-sum proofs — 95% match rate with zero false clears on a 50,000-record stress run.",
+    tech: ["Python", "CP-SAT (OR-Tools)", "FastAPI", "Razorpay Webhooks", "React"],
+    domains: ["AI/ML", "Systems"],
+    featured: true,
+    link: "https://github.com/RishiMaara/Among_Resolver",
+  },
+  {
     title: "AI Interview Preparation Platform",
     desc: "Full-stack AI platform that generates personalized interview questions, coding assessments, resume analysis, and learning recommendations using LLMs.",
     tech: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "LLM APIs"],
