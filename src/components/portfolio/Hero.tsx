@@ -3,30 +3,54 @@ import { useEffect, useRef, useState } from "react";
 import profileAsset from "@/assets/rishikesh-profile.jpg.asset.json";
 import resumeAsset from "@/assets/Rishikesh_AV_FS_Resume.pdf.asset.json";
 
-function Typewriter({ words, typeSpeed = 60, deleteSpeed = 30, pause = 1800 }: { words: string[]; typeSpeed?: number; deleteSpeed?: number; pause?: number }) {
+function Typewriter({ words, pause = 2000 }: { words: string[]; pause?: number }) {
   const [i, setI] = useState(0);
   const [text, setText] = useState("");
   const [del, setDel] = useState(false);
+
   useEffect(() => {
     const word = words[i % words.length];
+    let delay: number;
+
     if (!del && text === word) {
-      const t = setTimeout(() => setDel(true), pause);
-      return () => clearTimeout(t);
+      delay = pause; // hold full word
+    } else if (del && text === "") {
+      delay = 400; // beat before next word
+    } else if (del) {
+      delay = 32; // fast, even delete
+    } else {
+      // human-like typing: slight variance, brief pause after spaces
+      const lastChar = text.slice(-1);
+      delay = 55 + Math.random() * 55 + (lastChar === " " ? 120 : 0);
     }
-    if (del && text === "") {
-      setDel(false);
-      setI((v) => (v + 1) % words.length);
-      return;
-    }
+
     const t = setTimeout(() => {
-      setText((cur) => (del ? cur.slice(0, -1) : word.slice(0, cur.length + 1)));
-    }, del ? deleteSpeed : typeSpeed);
+      if (!del && text === word) {
+        setDel(true);
+      } else if (del && text === "") {
+        setDel(false);
+        setI((v) => (v + 1) % words.length);
+      } else {
+        setText((cur) => (del ? cur.slice(0, -1) : word.slice(0, cur.length + 1)));
+      }
+    }, delay);
     return () => clearTimeout(t);
-  }, [text, del, i, words, typeSpeed, deleteSpeed, pause]);
+  }, [text, del, i, words, pause]);
+
+  // Reserve width of the longest word so the layout never shifts
+  const longest = words.reduce((a, b) => (b.length > a.length ? b : a), "");
+
   return (
-    <span>
-      {text}
-      <span className="ml-1 inline-block w-[3px] -translate-y-0.5 rounded-sm bg-current align-middle animate-blink" style={{ height: "0.85em" }} />
+    <span className="relative inline-block">
+      {/* invisible sizer keeps width/height stable */}
+      <span aria-hidden className="invisible">{longest}</span>
+      <span className="absolute inset-0">
+        {text}
+        <span
+          className="ml-1 inline-block w-[3px] -translate-y-0.5 rounded-sm align-middle animate-blink"
+          style={{ height: "0.85em", background: "var(--primary)" }}
+        />
+      </span>
     </span>
   );
 }
