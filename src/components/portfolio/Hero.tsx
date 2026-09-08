@@ -47,8 +47,8 @@ function Typewriter({ words, pause = 2000 }: { words: string[]; pause?: number }
       <span className="absolute inset-0">
         {text}
         <span
-          className="ml-1 inline-block w-[3px] -translate-y-0.5 rounded-sm bg-current align-middle animate-blink"
-          style={{ height: "0.85em" }}
+          className="ml-1 inline-block w-[3px] -translate-y-0.5 rounded-sm align-middle animate-blink"
+          style={{ height: "0.85em", background: "var(--primary)" }}
         />
       </span>
     </span>
