@@ -41,14 +41,14 @@ function Typewriter({ words, pause = 2000 }: { words: string[]; pause?: number }
   const longest = words.reduce((a, b) => (b.length > a.length ? b : a), "");
 
   return (
-    <span className="relative inline-block">
+    <span className="relative inline-block align-bottom">
       {/* invisible sizer keeps width/height stable */}
       <span aria-hidden className="invisible">{longest}</span>
-      <span className="absolute inset-0">
-        {text}
+      <span className="absolute inset-0 flex items-center justify-center lg:justify-start whitespace-nowrap">
+        <span className="text-gradient animate-gradient-pan">{text}</span>
         <span
-          className="ml-1 inline-block w-[3px] -translate-y-0.5 rounded-sm align-middle animate-blink"
-          style={{ height: "0.85em", background: "var(--primary)" }}
+          className="ml-1 inline-block w-[3px] rounded-sm animate-blink"
+          style={{ height: "0.8em", background: "var(--primary)" }}
         />
       </span>
     </span>
@@ -140,7 +140,7 @@ export function Hero() {
 
             <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
               <span className="block text-foreground/90">Rishikesh AV</span>
-              <span className="block text-gradient animate-gradient-pan">
+              <span className="block">
                 <Typewriter
                   words={[
                     "Full-Stack Engineer",
