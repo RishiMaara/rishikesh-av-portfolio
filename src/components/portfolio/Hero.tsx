@@ -3,6 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import profileAsset from "@/assets/rishikesh-profile.jpg.asset.json";
 import resumeAsset from "@/assets/Rishikesh_AV_FS_Resume.pdf.asset.json";
 
+const HERO_ROLES = [
+  "Full-Stack Engineer",
+  "AI / ML Builder",
+  "Product Thinker",
+  "Systems Designer",
+] as const;
+
 function Typewriter({ words, pause = 2000 }: { words: string[]; pause?: number }) {
   const [i, setI] = useState(0);
   const [text, setText] = useState("");
@@ -142,12 +149,7 @@ export function Hero() {
               <span className="block text-foreground/90">Rishikesh AV</span>
               <span className="block">
                 <Typewriter
-                  words={[
-                    "Full-Stack Engineer",
-                    "AI / ML Builder",
-                    "Product Thinker",
-                    "Systems Designer",
-                  ]}
+                  words={[...HERO_ROLES]}
                 />
               </span>
               <span className="block text-foreground/80">Building at the edge of AI.</span>
