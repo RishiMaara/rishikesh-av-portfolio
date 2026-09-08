@@ -3,7 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import profileAsset from "@/assets/rishikesh-profile.jpg.asset.json";
 import resumeAsset from "@/assets/Rishikesh_AV_FS_Resume.pdf.asset.json";
 
-function Typewriter({ words, pause = 2000 }: { words: string[]; pause?: number }) {
+const HERO_ROLES = [
+  "Full-Stack Engineer",
+  "AI / ML Builder",
+  "Product Thinker",
+  "Systems Designer",
+] as const;
+
+function Typewriter({ words, pause = 2000 }: { words: readonly string[]; pause?: number }) {
   const [i, setI] = useState(0);
   const [text, setText] = useState("");
   const [del, setDel] = useState(false);
@@ -37,20 +44,13 @@ function Typewriter({ words, pause = 2000 }: { words: string[]; pause?: number }
     return () => clearTimeout(t);
   }, [text, del, i, words, pause]);
 
-  // Reserve width of the longest word so the layout never shifts
-  const longest = words.reduce((a, b) => (b.length > a.length ? b : a), "");
-
   return (
-    <span className="relative inline-block align-bottom">
-      {/* invisible sizer keeps width/height stable */}
-      <span aria-hidden className="invisible">{longest}</span>
-      <span className="absolute inset-0 flex items-center justify-center lg:justify-start whitespace-nowrap">
-        <span className="text-gradient animate-gradient-pan">{text}</span>
-        <span
-          className="ml-1 inline-block w-[3px] rounded-sm animate-blink"
-          style={{ height: "0.8em", background: "var(--primary)" }}
-        />
-      </span>
+    <span className="flex min-h-[1.25em] w-full items-center justify-center lg:justify-start" aria-live="polite">
+      <span className="text-gradient animate-gradient-pan">{text || "\u00A0"}</span>
+      <span
+        aria-hidden="true"
+        className="ml-1 inline-block h-[0.8em] w-[3px] shrink-0 rounded-sm bg-primary animate-blink"
+      />
     </span>
   );
 }
@@ -140,14 +140,9 @@ export function Hero() {
 
             <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
               <span className="block text-foreground/90">Rishikesh AV</span>
-              <span className="block">
+              <span className="block text-[2rem] sm:text-6xl lg:text-7xl">
                 <Typewriter
-                  words={[
-                    "Full-Stack Engineer",
-                    "AI / ML Builder",
-                    "Product Thinker",
-                    "Systems Designer",
-                  ]}
+                  words={HERO_ROLES}
                 />
               </span>
               <span className="block text-foreground/80">Building at the edge of AI.</span>
