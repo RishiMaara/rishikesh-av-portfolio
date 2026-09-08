@@ -140,7 +140,7 @@ export function Hero() {
 
             <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
               <span className="block text-foreground/90">Rishikesh AV</span>
-              <span className="block text-gradient animate-gradient-pan">
+              <span className="block">
                 <Typewriter
                   words={[
                     "Full-Stack Engineer",
