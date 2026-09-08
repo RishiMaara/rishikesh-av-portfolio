@@ -10,7 +10,7 @@ const HERO_ROLES = [
   "Systems Designer",
 ] as const;
 
-function Typewriter({ words, pause = 2000 }: { words: string[]; pause?: number }) {
+function Typewriter({ words, pause = 2000 }: { words: readonly string[]; pause?: number }) {
   const [i, setI] = useState(0);
   const [text, setText] = useState("");
   const [del, setDel] = useState(false);
@@ -142,7 +142,7 @@ export function Hero() {
               <span className="block text-foreground/90">Rishikesh AV</span>
               <span className="block text-[2rem] sm:text-6xl lg:text-7xl">
                 <Typewriter
-                  words={[...HERO_ROLES]}
+                  words={HERO_ROLES}
                 />
               </span>
               <span className="block text-foreground/80">Building at the edge of AI.</span>
