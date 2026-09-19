@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Section } from "./Section";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 
 type Domain = "AI/ML" | "Full-Stack" | "Systems" | "CV";
 
@@ -11,6 +11,7 @@ type Project = {
   domains: Domain[];
   featured?: boolean;
   link?: string;
+  repoLink?: string;
 };
 
 const projects: Project[] = [
@@ -20,7 +21,8 @@ const projects: Project[] = [
     tech: ["Python", "CP-SAT (OR-Tools)", "FastAPI", "Razorpay Webhooks", "React"],
     domains: ["AI/ML", "Systems"],
     featured: true,
-    link: "https://github.com/RishiMaara/Among_Resolver",
+    link: "https://among-resolver.vercel.app/",
+    repoLink: "https://github.com/RishiMaara/Among_Resolver",
   },
   {
     title: "AI Interview Preparation Platform",
@@ -114,13 +116,13 @@ export function Projects() {
 
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {filtered.map((p, i) => {
-          const CardWrapper = p.link ? "a" : "article";
+          const CardWrapper = p.link && !p.repoLink ? "a" : "article";
           return (
             <CardWrapper
               key={p.title}
-              href={p.link}
-              target={p.link ? "_blank" : undefined}
-              rel={p.link ? "noopener noreferrer" : undefined}
+              href={p.link && !p.repoLink ? p.link : undefined}
+              target={p.link && !p.repoLink ? "_blank" : undefined}
+              rel={p.link && !p.repoLink ? "noopener noreferrer" : undefined}
               className={`glass group relative flex flex-col overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow animate-fade-up ${
                 p.link ? "cursor-pointer" : ""
               }`}
@@ -156,6 +158,28 @@ export function Projects() {
                   </span>
                 ))}
               </div>
+              {p.repoLink && p.link && (
+                <div className="mt-5 flex flex-wrap gap-2 border-t border-white/10 pt-4">
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
+                    aria-label={`Open ${p.title} live app`}
+                  >
+                    <ExternalLink size={14} /> Live App
+                  </a>
+                  <a
+                    href={p.repoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-white/[0.08]"
+                    aria-label={`Open ${p.title} GitHub repository`}
+                  >
+                    <Github size={14} /> GitHub
+                  </a>
+                </div>
+              )}
             </CardWrapper>
           );
         })}
