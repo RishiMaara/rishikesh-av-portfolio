@@ -1,3 +1,3 @@
 # Roadmap
 
-- [ ] Add live app and GitHub links to AmongResolver.
+- [x] Add live app and GitHub links to AmongResolver.
